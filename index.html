@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Quote Display</title>
+  <meta http-equiv="refresh" content="60" >
+
+  <style>
+
+    html { 
+		  background: url(https://source.unsplash.com/collection/151899?blur) no-repeat center center fixed; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+		}
+
+		#randomQuote {
+			margin:50px;
+		}
+
+
+		h1, h2 {
+			color:#fff;
+			text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+		}
+
+		h2 {
+			text-align: right;
+		}
+
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body onLoad= "getQuote();">
+
+	<div id="randomQuote">
+		<h1 id="quote"></h1>
+		<h2 id="source"></h2>
+	</div>
+
+
+  <script>
+  	
+  	function getQuote() {
+	    var textArray = [
+		    ['“A problem well stated is a problem half solved.”',
+		    'Charles Kettering, inventor'],
+		    ['“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.”',
+		    'Buckminster Fuller, inventor'],
+		    ['“Don’t be afraid to take a big step when one is indicated. You can’t cross a chasm in two small jumps.”',
+		    'David Lloyd George, diplomat'],
+		    ['“I’ll play it first and tell you what it is later.”',
+		    'Miles Davis, musician'],
+		    ['“Not everything that counts can be counted, and not everything that can be counted counts.”',
+		    'Albert Einstein, physicist']
+			];
+
+			var randomNumber = Math.floor(Math.random()*textArray.length);
+			var randomQuote = textArray[randomNumber];
+
+	    var fullWidth = window.innerWidth;
+	    var fullHeight = window.innerHeight;
+	    var elem = document.getElementById("randomQuote");
+	    
+			elem.style.position = "absolute";
+	    elem.style.left = Math.round(Math.random()/1.5 * fullWidth) + "px";
+	    elem.style.top = Math.round(Math.random()/1.5 * fullHeight) + "px";
+
+	    document.getElementById("quote").innerHTML = randomQuote[0];
+	    document.getElementById("source").innerHTML = randomQuote[1];
+
+		};
+  </script>
+</body>
+</html>
